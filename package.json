@@ -5,6 +5,10 @@
   "types": "dist/index.d.ts",
   "type": "module",
   "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+://github.com/terukimateus/br-docs.git"
+  },
   "exports": {
     ".": "./dist/index.js",
     "./cpf": "./dist/cpf.js",
