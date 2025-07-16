@@ -7,8 +7,9 @@
   "sideEffects": false,
   "repository": {
     "type": "git",
-    "url": "git+://github.com/terukimateus/br-docs.git"
+    "url": "git+:https//github.com/terukimateus/br-docs.git"
   },
+  "homepage": "http://github.com/terukimateus/br-docs#readme",
   "exports": {
     ".": "./dist/index.js",
     "./cpf": "./dist/cpf.js",
