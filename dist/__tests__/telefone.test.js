@@ -6,6 +6,9 @@ const vitest_1 = require("vitest");
     (0, vitest_1.it)("should validate a correct phone number", () => {
         (0, vitest_1.expect)(telefone_1.Telefone.isValid("1132654321")).toBe(true);
     });
+    (0, vitest_1.it)("should validate a correct phone number with DDD", () => {
+        (0, vitest_1.expect)(telefone_1.Telefone.isValid("(11) 3265-4321")).toBe(true);
+    });
     (0, vitest_1.it)("should invalidate an incorrect phone number", () => {
         (0, vitest_1.expect)(telefone_1.Telefone.isValid("11987635432")).toBe(false);
     });
