@@ -6,6 +6,10 @@ describe("Telefone Validation", () => {
     expect(Telefone.isValid("1132654321")).toBe(true);
   });
 
+  it("should validate a correct phone number with DDD", () => {
+    expect(Telefone.isValid("(11) 3265-4321")).toBe(true);
+  });
+
   it("should invalidate an incorrect phone number", () => {
     expect(Telefone.isValid("11987635432")).toBe(false);
   });

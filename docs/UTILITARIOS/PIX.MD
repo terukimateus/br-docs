@@ -1,4 +1,4 @@
-# PIX
+# Pix
 
 ## Validação de PIX
 

@@ -1,21 +1,21 @@
-# Telefone/Celular
+# Telefone
 
-## Validação de Telefone/Celular
+## Validação de Telefone
 
-A validação de telefone/celular garante que o número informado siga o padrão brasileiro.
+A validação de telefone garante que o número informado siga o padrão brasileiro.
 
 ```typescript
 import { Telefone } from "br-docs";
 
-Telefone.isValid("(11) 99999-9999"); // true
-Telefone.format("11999999999"); // '(11) 99999-9999'
-Telefone.parse("(11) 99999-9999"); // '11999999999'
+Telefone.isValid("(11) 3265-4321"); // true
+Telefone.format("1132654321"); // '(11) 3265-4321'
+Telefone.parse("(11) 3265-4321"); // '1132654321'
 ```
 
-## Tipos de Telefone/Celular
+## Tipos de Telefone
 
-- Com DDD e traço: `(11) 99999-9999`
-- Apenas números: `11999999999`
+- Com DDD e traço: `(11) 9999-9999`
+- Apenas números: `1199999999`
 
 ## Tipos Typescript
 

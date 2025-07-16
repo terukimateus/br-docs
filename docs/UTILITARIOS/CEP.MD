@@ -1,4 +1,4 @@
-# CEP
+# Cep
 
 ## Validação de CEP
 
