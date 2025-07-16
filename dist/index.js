@@ -1,0 +1,21 @@
+"use strict";
+/**
+ * Interface genérica para validação, formatação e parsing de dados.
+ * @template T - Tipo de dado a ser manipulado.
+ */
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Cep = exports.Pix = exports.Uuid = exports.Email = exports.Celular = exports.Cnpj = exports.Cpf = void 0;
+var cpf_1 = require("./cpf");
+Object.defineProperty(exports, "Cpf", { enumerable: true, get: function () { return cpf_1.Cpf; } });
+var cnpj_1 = require("./cnpj");
+Object.defineProperty(exports, "Cnpj", { enumerable: true, get: function () { return cnpj_1.Cnpj; } });
+var celular_1 = require("./celular");
+Object.defineProperty(exports, "Celular", { enumerable: true, get: function () { return celular_1.Celular; } });
+var email_1 = require("./email");
+Object.defineProperty(exports, "Email", { enumerable: true, get: function () { return email_1.Email; } });
+var uuid_1 = require("./uuid");
+Object.defineProperty(exports, "Uuid", { enumerable: true, get: function () { return uuid_1.Uuid; } });
+var pix_1 = require("./pix");
+Object.defineProperty(exports, "Pix", { enumerable: true, get: function () { return pix_1.Pix; } });
+var cep_1 = require("./cep");
+Object.defineProperty(exports, "Cep", { enumerable: true, get: function () { return cep_1.Cep; } });
