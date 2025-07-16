@@ -26,3 +26,5 @@ function isValid(celular: CelularType): boolean;
 function format(celular: CelularType): string;
 function parse(celular: string): CelularType;
 ```
+
+.
