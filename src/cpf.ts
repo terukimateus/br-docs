@@ -1,4 +1,5 @@
 import { IGeneric } from ".";
+import clean from "./utils/cleanString";
 
 const CPF_BLACKLIST = [
   "00000000000",
@@ -58,7 +59,7 @@ export class Cpf implements IGeneric<"cpf"> {
   static isValid(cpf: string): boolean {
     if (!cpf) return false;
 
-    const cleanCpf = cpf.replace(/\D/g, "");
+    const cleanCpf = clean(cpf);
 
     if (cleanCpf.length !== 11) return false;
 
@@ -80,7 +81,7 @@ export class Cpf implements IGeneric<"cpf"> {
    * @returns string - Retorna o CPF formatado.
    */
   static format(cpf: string): string {
-    const cleanCpf = cpf.replace(/\D/g, "");
+    const cleanCpf = clean(cpf);
     if (cleanCpf.length !== 11) return cpf;
     return cleanCpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
   }
@@ -92,7 +93,7 @@ export class Cpf implements IGeneric<"cpf"> {
    * @returns string - Retorna o CPF parseado.
    */
   static parse(cpf: string): string {
-    const cleanCpf = cpf.replace(/\D/g, "");
+    const cleanCpf = clean(cpf);
     if (cleanCpf.length !== 11) return cpf;
     return cleanCpf;
   }

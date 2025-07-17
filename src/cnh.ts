@@ -1,4 +1,5 @@
 import { IGeneric } from ".";
+import clean from "./utils/cleanString";
 
 /**
  * Função auxiliar para calcular o dígito verificador de um número.
@@ -37,7 +38,7 @@ export class Cnh implements IGeneric<"cnh"> {
   static isValid(cnh: string): boolean {
     if (!cnh) return false;
 
-    const cleanCnh = cnh.replace(/\D/g, "");
+    const cleanCnh = clean(cnh);
 
     const firstDigit = calcDigit(cleanCnh.slice(0, 9));
     const secondDigit = calcDigit(cleanCnh.slice(0, 10));
@@ -56,7 +57,7 @@ export class Cnh implements IGeneric<"cnh"> {
    * @returns string - Retorna a CNH formatada.
    */
   static format(cnh: string): string {
-    const cleanCnh = cnh.replace(/\D/g, "");
+    const cleanCnh = clean(cnh);
     if (cleanCnh.length === 11) {
       return cleanCnh.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
     }
@@ -70,6 +71,6 @@ export class Cnh implements IGeneric<"cnh"> {
    * @returns string - Retorna a CNH parseada.
    */
   static parse(cnh: string): string {
-    return cnh.replace(/\D/g, "");
+    return clean(cnh);
   }
 }

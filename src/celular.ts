@@ -1,4 +1,5 @@
 import { IGeneric } from ".";
+import clean from "./utils/cleanString";
 
 const PHONE_LENGTHS_REGEX: Record<number, RegExp> = {
   10: /^(\d{2})(\d{4})(\d{4})$/,
@@ -41,7 +42,7 @@ export class Celular implements IGeneric<"celular"> {
   static isValid(phone: string): boolean {
     if (!phone) return false;
 
-    const cleanPhone = phone.replace(/\D/g, "");
+    const cleanPhone = clean(phone);
     return REGEX_PHONE.test(cleanPhone);
   }
   /**
@@ -52,7 +53,7 @@ export class Celular implements IGeneric<"celular"> {
    * @returns {string} Número formatado.
    */
   static format(phone: string): string {
-    const cleanPhone = phone.replace(/\D/g, "");
+    const cleanPhone = clean(phone);
     const length = cleanPhone.length;
     if (length === 10 || length === 11) {
       return cleanPhone.replace(PHONE_LENGTHS_REGEX[length], "($1) $2-$3");
@@ -68,7 +69,7 @@ export class Celular implements IGeneric<"celular"> {
    * @returns {string} Número parseado.
    */
   static parse(phone: string): string {
-    const cleanPhone = phone.replace(/\D/g, "");
+    const cleanPhone = clean(phone);
 
     return cleanPhone;
   }

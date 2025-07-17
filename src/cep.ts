@@ -1,4 +1,5 @@
 import { IGeneric } from ".";
+import clean from "./utils/cleanString";
 
 export class Cep implements IGeneric<"cep"> {
   constructor(private cep: string) {}
@@ -25,7 +26,7 @@ export class Cep implements IGeneric<"cep"> {
   static isValid(cep: string): boolean {
     if (!cep) return false;
 
-    const cleanCep = cep.replace(/\D/g, "");
+    const cleanCep = clean(cep);
     return /^[0-9]{5}-?[0-9]{3}$/.test(cleanCep);
   }
   /**
@@ -36,7 +37,7 @@ export class Cep implements IGeneric<"cep"> {
    * @returns string - Retorna o CEP formatado.
    */
   static format(cep: string): string {
-    const cleanCep = cep.replace(/\D/g, "");
+    const cleanCep = clean(cep);
     if (cleanCep.length === 8) {
       return cleanCep.replace(/(\d{5})(\d{3})/, "$1-$2");
     }
@@ -50,6 +51,6 @@ export class Cep implements IGeneric<"cep"> {
    * @returns string - Retorna o CEP parseado.
    */
   static parse(cep: string): string {
-    return cep.replace(/\D/g, "");
+    return clean(cep);
   }
 }

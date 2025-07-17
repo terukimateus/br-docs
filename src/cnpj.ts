@@ -1,4 +1,5 @@
 import { IGeneric } from ".";
+import clean from "./utils/cleanString";
 
 const weights: Record<number, number[]> = {
   12: [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2],
@@ -46,7 +47,7 @@ export class Cnpj implements IGeneric<"cnpj"> {
   static isValid(cnpj: string): boolean {
     if (!cnpj) return false;
 
-    const cleanCnpj = cnpj.replace(/\D/g, "");
+    const cleanCnpj = clean(cnpj);
     if (cleanCnpj.length !== 14) return false;
     if (/^(\d)\1+$/.test(cleanCnpj)) return false;
 
@@ -67,7 +68,7 @@ export class Cnpj implements IGeneric<"cnpj"> {
    * @returns string - Retorna o CNPJ formatado.
    */
   static format(cnpj: string): string {
-    const cleanCnpj = cnpj.replace(/\D/g, "");
+    const cleanCnpj = clean(cnpj);
     if (cleanCnpj.length !== 14) return cnpj;
     return cleanCnpj.replace(
       /(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/,
@@ -82,7 +83,7 @@ export class Cnpj implements IGeneric<"cnpj"> {
    * @returns string - Retorna o CNPJ parseado.
    */
   static parse(cnpj: string): string {
-    const cleanCnpj = cnpj.replace(/\D/g, "");
+    const cleanCnpj = clean(cnpj);
     if (cleanCnpj.length !== 14) return cnpj;
     return cleanCnpj;
   }
