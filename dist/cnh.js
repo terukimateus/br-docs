@@ -1,6 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Cnh = void 0;
+const cleanString_1 = __importDefault(require("./utils/cleanString"));
 /**
  * Função auxiliar para calcular o dígito verificador de um número.
  * @param digits
@@ -36,7 +40,7 @@ class Cnh {
     static isValid(cnh) {
         if (!cnh)
             return false;
-        const cleanCnh = cnh.replace(/\D/g, "");
+        const cleanCnh = (0, cleanString_1.default)(cnh);
         const firstDigit = calcDigit(cleanCnh.slice(0, 9));
         const secondDigit = calcDigit(cleanCnh.slice(0, 10));
         return (cleanCnh.length === 11 &&
@@ -51,7 +55,7 @@ class Cnh {
      * @returns string - Retorna a CNH formatada.
      */
     static format(cnh) {
-        const cleanCnh = cnh.replace(/\D/g, "");
+        const cleanCnh = (0, cleanString_1.default)(cnh);
         if (cleanCnh.length === 11) {
             return cleanCnh.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
         }
@@ -65,7 +69,7 @@ class Cnh {
      * @returns string - Retorna a CNH parseada.
      */
     static parse(cnh) {
-        return cnh.replace(/\D/g, "");
+        return (0, cleanString_1.default)(cnh);
     }
 }
 exports.Cnh = Cnh;

@@ -1,6 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Cnpj = void 0;
+const cleanString_1 = __importDefault(require("./utils/cleanString"));
 const weights = {
     12: [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2],
     13: [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2],
@@ -43,7 +47,7 @@ class Cnpj {
     static isValid(cnpj) {
         if (!cnpj)
             return false;
-        const cleanCnpj = cnpj.replace(/\D/g, "");
+        const cleanCnpj = (0, cleanString_1.default)(cnpj);
         if (cleanCnpj.length !== 14)
             return false;
         if (/^(\d)\1+$/.test(cleanCnpj))
@@ -62,7 +66,7 @@ class Cnpj {
      * @returns string - Retorna o CNPJ formatado.
      */
     static format(cnpj) {
-        const cleanCnpj = cnpj.replace(/\D/g, "");
+        const cleanCnpj = (0, cleanString_1.default)(cnpj);
         if (cleanCnpj.length !== 14)
             return cnpj;
         return cleanCnpj.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5");
@@ -75,7 +79,7 @@ class Cnpj {
      * @returns string - Retorna o CNPJ parseado.
      */
     static parse(cnpj) {
-        const cleanCnpj = cnpj.replace(/\D/g, "");
+        const cleanCnpj = (0, cleanString_1.default)(cnpj);
         if (cleanCnpj.length !== 14)
             return cnpj;
         return cleanCnpj;

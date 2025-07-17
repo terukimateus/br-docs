@@ -1,6 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Celular = void 0;
+const cleanString_1 = __importDefault(require("./utils/cleanString"));
 const PHONE_LENGTHS_REGEX = {
     10: /^(\d{2})(\d{4})(\d{4})$/,
     11: /^(\d{2})(\d{5})(\d{4})$/,
@@ -37,7 +41,7 @@ class Celular {
     static isValid(phone) {
         if (!phone)
             return false;
-        const cleanPhone = phone.replace(/\D/g, "");
+        const cleanPhone = (0, cleanString_1.default)(phone);
         return REGEX_PHONE.test(cleanPhone);
     }
     /**
@@ -48,7 +52,7 @@ class Celular {
      * @returns {string} Número formatado.
      */
     static format(phone) {
-        const cleanPhone = phone.replace(/\D/g, "");
+        const cleanPhone = (0, cleanString_1.default)(phone);
         const length = cleanPhone.length;
         if (length === 10 || length === 11) {
             return cleanPhone.replace(PHONE_LENGTHS_REGEX[length], "($1) $2-$3");
@@ -63,7 +67,7 @@ class Celular {
      * @returns {string} Número parseado.
      */
     static parse(phone) {
-        const cleanPhone = phone.replace(/\D/g, "");
+        const cleanPhone = (0, cleanString_1.default)(phone);
         return cleanPhone;
     }
 }

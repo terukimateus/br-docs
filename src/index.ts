@@ -31,3 +31,5 @@ export { Email } from "./email";
 export { Uuid } from "./uuid";
 export { Pix } from "./pix";
 export { Cep } from "./cep";
+export { Telefone } from "./telefone";
+export { Cnh } from "./cnh";

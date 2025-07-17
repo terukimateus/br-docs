@@ -1,6 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Cpf = void 0;
+const cleanString_1 = __importDefault(require("./utils/cleanString"));
 const CPF_BLACKLIST = [
     "00000000000",
     "11111111111",
@@ -54,7 +58,7 @@ class Cpf {
     static isValid(cpf) {
         if (!cpf)
             return false;
-        const cleanCpf = cpf.replace(/\D/g, "");
+        const cleanCpf = (0, cleanString_1.default)(cpf);
         if (cleanCpf.length !== 11)
             return false;
         if (CPF_BLACKLIST.includes(cpf))
@@ -75,7 +79,7 @@ class Cpf {
      * @returns string - Retorna o CPF formatado.
      */
     static format(cpf) {
-        const cleanCpf = cpf.replace(/\D/g, "");
+        const cleanCpf = (0, cleanString_1.default)(cpf);
         if (cleanCpf.length !== 11)
             return cpf;
         return cleanCpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
@@ -88,7 +92,7 @@ class Cpf {
      * @returns string - Retorna o CPF parseado.
      */
     static parse(cpf) {
-        const cleanCpf = cpf.replace(/\D/g, "");
+        const cleanCpf = (0, cleanString_1.default)(cpf);
         if (cleanCpf.length !== 11)
             return cpf;
         return cleanCpf;
