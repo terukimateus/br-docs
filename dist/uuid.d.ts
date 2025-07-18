@@ -1,5 +1,5 @@
-import { IGeneric } from ".";
-export declare class Uuid implements Omit<IGeneric<"uuid">, "format"> {
+import { IDocumentHandler } from ".";
+export declare class Uuid implements Omit<IDocumentHandler<string>, "format"> {
     private uuid;
     constructor(uuid: string);
     isValid(): boolean;

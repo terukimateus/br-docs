@@ -1,5 +1,5 @@
-import { IGeneric } from ".";
-export declare class Cep implements IGeneric<"cep"> {
+import { IDocumentHandler } from ".";
+export declare class Cep implements IDocumentHandler<"cep"> {
     private cep;
     constructor(cep: string);
     isValid(): boolean;

@@ -1,5 +1,5 @@
-import { IGeneric } from ".";
-export declare class Telefone implements IGeneric<"telefone"> {
+import { IDocumentHandler } from ".";
+export declare class Telefone implements IDocumentHandler<boolean> {
     private phone;
     constructor(phone: string);
     isValid(): boolean;

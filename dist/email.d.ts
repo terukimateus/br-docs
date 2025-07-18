@@ -1,5 +1,5 @@
-import { IGeneric } from ".";
-export declare class Email implements Omit<IGeneric<"email">, "format" | "parse"> {
+import { IDocumentHandler } from ".";
+export declare class Email implements Omit<IDocumentHandler<string>, "format" | "parse"> {
     private email;
     constructor(email: string);
     isValid(): boolean;

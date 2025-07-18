@@ -1,6 +1,6 @@
-import { IGeneric } from ".";
+import { IDocumentHandler } from ".";
 type PixTypes = "celular" | "cpf" | "email" | "uuid";
-export declare class Pix implements Omit<IGeneric<"pix">, "parse"> {
+export declare class Pix implements Omit<IDocumentHandler<string>, "parse"> {
     private pix;
     constructor(pix: string);
     isValid(): boolean;

@@ -1,8 +1,4 @@
 "use strict";
-/**
- * Interface genérica para validação, formatação e parsing de dados.
- * @template T - Tipo de dado a ser manipulado.
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Cnh = exports.Telefone = exports.Cep = exports.Pix = exports.Uuid = exports.Email = exports.Celular = exports.Cnpj = exports.Cpf = void 0;
 var cpf_1 = require("./cpf");

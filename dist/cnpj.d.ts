@@ -1,5 +1,5 @@
-import { IGeneric } from ".";
-export declare class Cnpj implements IGeneric<"cnpj"> {
+import { IDocumentHandler } from ".";
+export declare class Cnpj implements IDocumentHandler<string> {
     private cnpj;
     constructor(cnpj: string);
     isValid(): boolean;

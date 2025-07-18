@@ -14,7 +14,7 @@ const REGEX_PHONE = /^(1[1-9]|2[1-2]|24|2[2-8]|3[1-5]|3[7-8]|4[1-9]|51|5[3-5]|6[
  * Aceita formatos com ou sem DDD, e retorna true se o número for válido.
  * Exemplo: "11987654321" ou "(11) 98765-4321".
  * @class Celular
- * @implements {IGeneric<"celular">}
+ * @implements {IDocumentHandler<string>}
  * @param {string} phone Número de telefone a ser validado.
  * @returns {boolean} Verdadeiro se o número for válido, caso contrário falso.
  */

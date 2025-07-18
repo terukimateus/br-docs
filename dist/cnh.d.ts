@@ -1,5 +1,5 @@
-import { IGeneric } from ".";
-export declare class Cnh implements IGeneric<"cnh"> {
+import { IDocumentHandler } from ".";
+export declare class Cnh implements IDocumentHandler<string> {
     private cnh;
     constructor(cnh: string);
     isValid(): boolean;

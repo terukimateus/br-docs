@@ -1,18 +1,25 @@
-# BR Docs
+# 🇧🇷 BR Docs · Validação e formatação de documentos brasileiros
 
-Utilitários para validação, formatação e parsing de documentos brasileiros.
+[![npm version](https://img.shields.io/npm/v/br-docs.svg)](https://www.npmjs.com/package/br-docs)
+[![npm downloads](https://img.shields.io/npm/dw/br-docs.svg)](https://www.npmjs.com/package/br-docs)
+[![license](https://img.shields.io/github/license/terukimateus/br-docs)](./LICENSE)
 
-## Instalação
+Utilitários simples e modulares para **validação**, **formatação** e **parsing** de documentos brasileiros.
 
-```bash
+✅ Feito em TypeScript  
+✅ Modular
+✅ Open Source com testes
+
+## 📦 Instalação
+
+````bash
 npm install br-docs
-```
 
 ## Importação
 
 ```typescript
 import { Cpf, Cnpj } from "br-docs";
-```
+````
 
 ## Uso
 
@@ -104,16 +111,35 @@ Cnh.isValid("12345678901"); // true
 Todos os módulos implementam a interface `IGeneric<T>`:
 
 ```typescript
-export interface IGeneric<T> {
+export interface IValidator<T> {
   isValid(input: T): boolean;
+}
+
+export interface IFormatter<T> {
   format(input: T): string;
+}
+
+export interface IParser<T> {
   parse(input: T): string;
 }
+
+export interface IDocumentHandler<T>
+  extends IValidator<T>,
+    IFormatter<T>,
+    IParser<T> {}
 ```
 
-# Docs
+# 📚 Documentação Completa
 
 [Clique aqui para acessar a documentação completa](https://br-docs-1.gitbook.io/br-docs/)
+
+# Contribuindo
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
+3. Faça commit das suas alterações (`git commit -m 'Add nova feature'`)
+4. Faça push para a branch (`git push origin feature/nova-feature`)
+5. Abra um Pull Request
 
 ## Licença
 

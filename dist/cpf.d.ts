@@ -1,5 +1,5 @@
-import { IGeneric } from ".";
-export declare class Cpf implements IGeneric<"cpf"> {
+import { IDocumentHandler } from ".";
+export declare class Cpf implements IDocumentHandler<string> {
     private cpf;
     constructor(cpf: string);
     isValid(): boolean;
