@@ -1,4 +1,4 @@
-import { IGeneric } from ".";
+import { IDocumentHandler } from ".";
 import clean from "./utils/cleanString";
 
 const PHONE_LENGTHS_REGEX: Record<number, RegExp> = {
@@ -13,11 +13,11 @@ const REGEX_PHONE: RegExp =
  * Aceita formatos com ou sem DDD, e retorna true se o número for válido.
  * Exemplo: "11987654321" ou "(11) 98765-4321".
  * @class Celular
- * @implements {IGeneric<"celular">}
+ * @implements {IDocumentHandler<string>}
  * @param {string} phone Número de telefone a ser validado.
  * @returns {boolean} Verdadeiro se o número for válido, caso contrário falso.
  */
-export class Celular implements IGeneric<"celular"> {
+export class Celular implements IDocumentHandler<string> {
   constructor(private phone: string) {}
 
   isValid(): boolean {

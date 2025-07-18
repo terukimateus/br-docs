@@ -1,4 +1,4 @@
-import { IGeneric } from ".";
+import { IDocumentHandler } from ".";
 import clean from "./utils/cleanString";
 
 const CPF_BLACKLIST = [
@@ -35,18 +35,18 @@ const calcDigit = (digits: string, position: number): number => {
   return remainder === 10 ? 0 : remainder;
 };
 
-export class Cpf implements IGeneric<"cpf"> {
+export class Cpf implements IDocumentHandler<string> {
   constructor(private cpf: string) {}
 
-  isValid(): boolean {
+  isValid() {
     return Cpf.isValid(this.cpf);
   }
 
-  format(): string {
+  format() {
     return Cpf.format(this.cpf);
   }
 
-  parse(): string {
+  parse() {
     return Cpf.parse(this.cpf);
   }
   /**

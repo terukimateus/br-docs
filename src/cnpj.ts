@@ -1,4 +1,4 @@
-import { IGeneric } from ".";
+import { IDocumentHandler } from ".";
 import clean from "./utils/cleanString";
 
 const weights: Record<number, number[]> = {
@@ -23,7 +23,7 @@ const calcDigit = (digits: string, pos: number): number => {
   return remainder < 2 ? 0 : 11 - remainder;
 };
 
-export class Cnpj implements IGeneric<"cnpj"> {
+export class Cnpj implements IDocumentHandler<string> {
   constructor(private cnpj: string) {}
 
   isValid(): boolean {

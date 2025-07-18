@@ -1,4 +1,4 @@
-import { IGeneric } from ".";
+import { IDocumentHandler } from ".";
 import { Celular } from "./celular";
 import { Cpf } from "./cpf";
 import { Email } from "./email";
@@ -14,7 +14,7 @@ const formatPixTypes: Record<PixTypes, (pix: string) => string> = {
   uuid: (pix) => Uuid.format(pix),
 };
 
-export class Pix implements Omit<IGeneric<"pix">, "parse"> {
+export class Pix implements Omit<IDocumentHandler<string>, "parse"> {
   constructor(private pix: string) {}
 
   isValid(): boolean {

@@ -1,7 +1,7 @@
-import { IGeneric } from ".";
+import { IDocumentHandler } from ".";
 import clean from "./utils/cleanString";
 
-export class Cep implements IGeneric<"cep"> {
+export class Cep implements IDocumentHandler<"cep"> {
   constructor(private cep: string) {}
 
   isValid(): boolean {

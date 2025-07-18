@@ -1,9 +1,11 @@
-import { IGeneric } from ".";
+import { IDocumentHandler } from ".";
 
-export class Email implements Omit<IGeneric<"email">, "format" | "parse"> {
+export class Email
+  implements Omit<IDocumentHandler<string>, "format" | "parse">
+{
   constructor(private email: string) {}
 
-  isValid(): boolean {
+  isValid() {
     return Email.isValid(this.email);
   }
   /**

@@ -1,13 +1,13 @@
-import { IGeneric } from ".";
+import { IDocumentHandler } from ".";
 
-export class Uuid implements Omit<IGeneric<"uuid">, "format"> {
+export class Uuid implements Omit<IDocumentHandler<string>, "format"> {
   constructor(private uuid: string) {}
 
-  isValid(): boolean {
+  isValid() {
     return Uuid.isValid(this.uuid);
   }
 
-  parse(): string {
+  parse() {
     return Uuid.parse(this.uuid);
   }
   /**

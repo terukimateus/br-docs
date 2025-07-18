@@ -1,4 +1,4 @@
-import { IGeneric } from ".";
+import { IDocumentHandler } from ".";
 import clean from "./utils/cleanString";
 
 /**
@@ -14,7 +14,7 @@ const calcDigit = (digits: string): number => {
   return remainder < 2 ? 0 : 11 - remainder;
 };
 
-export class Cnh implements IGeneric<"cnh"> {
+export class Cnh implements IDocumentHandler<string> {
   constructor(private cnh: string) {}
 
   isValid(): boolean {

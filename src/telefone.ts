@@ -1,21 +1,21 @@
-import { IGeneric } from ".";
+import { IDocumentHandler } from ".";
 import clean from "./utils/cleanString";
 
 const TELEFONE_REGEX =
   /^(1[1-9]|2[1-2]|24|2[2-8]|3[1-5]|3[7-8]|4[1-9]|51|5[3-5]|6[1-9]|71|7[3-5]|77|79|8[1-9]|9[1-9])\d{8}$/;
 
-export class Telefone implements IGeneric<"telefone"> {
+export class Telefone implements IDocumentHandler<boolean> {
   constructor(private phone: string) {}
 
-  isValid(): boolean {
+  isValid() {
     return Telefone.isValid(this.phone);
   }
 
-  format(): string {
+  format() {
     return Telefone.format(this.phone);
   }
 
-  parse(): string {
+  parse() {
     return Telefone.parse(this.phone);
   }
   /**

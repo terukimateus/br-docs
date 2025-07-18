@@ -4,7 +4,7 @@
  * @template T - Tipo de dado a ser manipulado.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Cep = exports.Pix = exports.Uuid = exports.Email = exports.Celular = exports.Cnpj = exports.Cpf = void 0;
+exports.Cnh = exports.Telefone = exports.Cep = exports.Pix = exports.Uuid = exports.Email = exports.Celular = exports.Cnpj = exports.Cpf = void 0;
 var cpf_1 = require("./cpf");
 Object.defineProperty(exports, "Cpf", { enumerable: true, get: function () { return cpf_1.Cpf; } });
 var cnpj_1 = require("./cnpj");
@@ -19,3 +19,7 @@ var pix_1 = require("./pix");
 Object.defineProperty(exports, "Pix", { enumerable: true, get: function () { return pix_1.Pix; } });
 var cep_1 = require("./cep");
 Object.defineProperty(exports, "Cep", { enumerable: true, get: function () { return cep_1.Cep; } });
+var telefone_1 = require("./telefone");
+Object.defineProperty(exports, "Telefone", { enumerable: true, get: function () { return telefone_1.Telefone; } });
+var cnh_1 = require("./cnh");
+Object.defineProperty(exports, "Cnh", { enumerable: true, get: function () { return cnh_1.Cnh; } });
