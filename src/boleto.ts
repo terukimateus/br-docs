@@ -167,6 +167,6 @@ export class Boleto implements IDocumentHandler<string> {
 
   static parse(boleto: string): string {
     const cleanBoleto = clean(boleto);
-    return cleanBoleto.replace(/[^0-9]/g, "");
+    return cleanBoleto;
   }
 }
