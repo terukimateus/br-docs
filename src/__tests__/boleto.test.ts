@@ -20,7 +20,7 @@ describe("Boleto", () => {
   });
   it("should format a 'COBRANCA' boleto correctly", () => {
     expect(
-      Boleto.format("42297.11504 00064.897317 07506.739429 1 11700000010400")
+      Boleto.format("42297115040006489731707506.739429 1 11700000010400")
     ).toBe("42297.11504 00064.897317 07506.739429 1 11700000010400");
   });
   it("should format a 'ARRECADACAO' boleto correctly", () => {
