@@ -63,10 +63,10 @@ class Cpf {
             return false;
         if (CPF_BLACKLIST.includes(cpf))
             return false;
-        let firstRemainder = calcDigit(cleanCpf.slice(0, 9), 10);
+        const firstRemainder = calcDigit(cleanCpf.slice(0, 9), 10);
         if (firstRemainder !== parseInt(cleanCpf[9]))
             return false;
-        let secondRemainder = calcDigit(cleanCpf.slice(0, 10), 11);
+        const secondRemainder = calcDigit(cleanCpf.slice(0, 10), 11);
         if (secondRemainder !== parseInt(cleanCpf[10]))
             return false;
         return true;
