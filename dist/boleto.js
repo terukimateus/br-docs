@@ -135,7 +135,7 @@ class Boleto {
     }
     static parse(boleto) {
         const cleanBoleto = (0, cleanString_1.default)(boleto);
-        return cleanBoleto.replace(/[^0-9]/g, "");
+        return cleanBoleto;
     }
 }
 exports.Boleto = Boleto;

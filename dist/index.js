@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Cnh = exports.Telefone = exports.Cep = exports.Pix = exports.Uuid = exports.Email = exports.Celular = exports.Cnpj = exports.Cpf = void 0;
+exports.Boleto = exports.Cnh = exports.Telefone = exports.Cep = exports.Pix = exports.Uuid = exports.Email = exports.Celular = exports.Cnpj = exports.Cpf = void 0;
 var cpf_1 = require("./cpf");
 Object.defineProperty(exports, "Cpf", { enumerable: true, get: function () { return cpf_1.Cpf; } });
 var cnpj_1 = require("./cnpj");
@@ -19,3 +19,5 @@ var telefone_1 = require("./telefone");
 Object.defineProperty(exports, "Telefone", { enumerable: true, get: function () { return telefone_1.Telefone; } });
 var cnh_1 = require("./cnh");
 Object.defineProperty(exports, "Cnh", { enumerable: true, get: function () { return cnh_1.Cnh; } });
+var boleto_1 = require("./boleto");
+Object.defineProperty(exports, "Boleto", { enumerable: true, get: function () { return boleto_1.Boleto; } });

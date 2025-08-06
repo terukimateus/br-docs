@@ -43,3 +43,4 @@ export { Pix } from "./pix";
 export { Cep } from "./cep";
 export { Telefone } from "./telefone";
 export { Cnh } from "./cnh";
+export { Boleto } from "./boleto";

@@ -12,7 +12,7 @@ const boleto_1 = require("../boleto");
         (0, vitest_1.expect)(boleto_1.Boleto.isValid("858900000001 234567890123 456789012345 678901234567")).toBe(true);
     });
     (0, vitest_1.it)("should format a 'COBRANCA' boleto correctly", () => {
-        (0, vitest_1.expect)(boleto_1.Boleto.format("42297.11504 00064.897317 07506.739429 1 11700000010400")).toBe("42297.11504 00064.897317 07506.739429 1 11700000010400");
+        (0, vitest_1.expect)(boleto_1.Boleto.format("42297115040006489731707506.739429 1 11700000010400")).toBe("42297.11504 00064.897317 07506.739429 1 11700000010400");
     });
     (0, vitest_1.it)("should format a 'ARRECADACAO' boleto correctly", () => {
         (0, vitest_1.expect)(boleto_1.Boleto.format("858900000001234567890123456789012345678901234567")).toBe("85890000000-1 23456789012-3 45678901234-5 67890123456-7");
