@@ -20,7 +20,8 @@
     "./uuid": "./dist/uuid.js",
     "./cnh": "./dist/cnh.js",
     "./cep": "./dist/cep.js",
-    "./telefone": "./dist/telefone.js"
+    "./telefone": "./dist/telefone.js",
+    "./boleto": "./dist/boleto.js"
   },
   "scripts": {
     "build": "tsc",
