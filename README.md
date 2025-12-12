@@ -7,7 +7,6 @@
 Utilitários simples e modulares para **validação**, **formatação** e **parsing** de documentos brasileiros.
 
 ✅ Feito em TypeScript  
-✅ Modular
 ✅ Open Source com testes
 
 ## 📦 Instalação
