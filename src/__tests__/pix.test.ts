@@ -38,4 +38,56 @@ describe("pix", () => {
       "123e4567-e89b-12d3-a456-426614174000"
     );
   });
+
+  it("should auto detect and format phone pix", () => {
+    expect(Pix.format("44922222333")).toBe("(44) 92222-2333");
+  });
+
+  it("should auto detect and format CPF pix", () => {
+    expect(Pix.format("12345678909")).toBe("123.456.789-09");
+  });
+
+  it("should auto detect and format CNPJ pix", () => {
+    expect(Pix.format("11222333000181")).toBe("11.222.333/0001-81");
+  });
+
+  it("should auto detect and format UUID pix", () => {
+    expect(Pix.format("123e4567-e89b-12d3-a456-426614174000")).toBe(
+      "123e4567-e89b-12d3-a456-426614174000"
+    );
+  });
+
+  it("should parse phone pix", () => {
+    expect(Pix.parse("(44) 92222-2333", "celular")).toBe("44922222333");
+  });
+
+  it("should auto detect and parse CPF pix", () => {
+    expect(Pix.parse("123.456.789-09")).toBe("12345678909");
+  });
+
+  it("should auto detect and parse CNPJ pix", () => {
+    expect(Pix.parse("11.222.333/0001-81")).toBe("11222333000181");
+  });
+
+  it("should parse email pix", () => {
+    expect(Pix.parse(" Valid@Valid.com  ", "email")).toBe("valid@valid.com");
+  });
+
+  it("should auto detect and parse UUID pix", () => {
+    expect(Pix.parse("123e4567-e89b-12d3-a456-426614174000")).toBe(
+      "123e4567e89b12d3a456426614174000"
+    );
+  });
+
+  it("should throw when pix type cannot be identified for format", () => {
+    expect(() => Pix.format("invalid-pix" as string)).toThrow(
+      "Tipo de Pix inválido"
+    );
+  });
+
+  it("should throw when pix type cannot be identified for parse", () => {
+    expect(() => Pix.parse("invalid-pix" as string)).toThrow(
+      "Tipo de Pix inválido"
+    );
+  });
 });
