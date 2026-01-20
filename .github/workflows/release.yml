@@ -36,9 +36,21 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Bump version + tag
+      - name: Compute next version tag (patch)
+        id: next
         run: |
-          npm version patch -m "chore(release): v%s"
+          node -e "const p=require('./package.json'); const [M,m,pa]=p.version.split('.').map(Number); console.log('tag=v'+M+'.'+m+'.'+(pa+1))" >> $GITHUB_OUTPUT
+
+      - name: Skip if tag already exists
+        run: |
+          git fetch --tags
+          if git rev-parse "${{ steps.next.outputs.tag }}" >/dev/null 2>&1; then
+            echo "Tag ${{ steps.next.outputs.tag }} already exists. Skipping release."
+            exit 0
+          fi
+
+      - name: Bump version + tag
+        run: 'npm version patch -m "chore(release): v%s"'
 
       - name: Push commit + tags
         run: git push --follow-tags origin HEAD:main
