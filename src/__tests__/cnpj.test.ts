@@ -6,8 +6,31 @@ describe("CNPJ Validation", () => {
     expect(Cnpj.isValid("12.345.678/0001-95")).toBe(true);
   });
 
+  it("should validate a correct CNPJ without formatting", () => {
+    expect(Cnpj.isValid("12345678000195")).toBe(true);
+  });
+
+  it("should validate a correct alphanumeric CNPJ", () => {
+    expect(Cnpj.isValid("3K.4ZV.GKB/0001-10")).toBe(true);
+    expect(Cnpj.isValid("3K4ZVGKB000110")).toBe(true);
+    expect(Cnpj.isValid("TA.JDY.N97/0001-72")).toBe(true);
+    expect(Cnpj.isValid("VZ.ZNH.Z91/0001-06")).toBe(true);
+  });
+
   it("should invalidate an incorrect CNPJ", () => {
     expect(Cnpj.isValid("12.345.678/0001-96")).toBe(false);
+  });
+
+  it("should invalidate an empty CNPJ", () => {
+    expect(Cnpj.isValid("")).toBe(false);
+  });
+
+  it("should invalidate an incorrect alphanumeric CNPJ", () => {
+    expect(Cnpj.isValid("3K.4ZV.GKB/0001-11")).toBe(false);
+  });
+
+  it("should format a alphanumeric CNPJ correctly", () => {
+    expect(Cnpj.format("3K4ZVGKB000110")).toBe("3K.4ZV.GKB/0001-10");
   });
 
   it("should format a CNPJ correctly", () => {

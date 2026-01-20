@@ -28,14 +28,12 @@ export interface IParser<T> {
  * Implementa as interfaces de validação, formatação e parsing.
  * @param T - Tipo do documento a ser manipulado.
  * @interface IDocumentHandler
- * @extends {IValidator<T>}
- * @extends {IFormatter<T>}
- * @extends {IParser<T>}
  */
-export interface IDocumentHandler<T>
-  extends IValidator<T>,
-    IFormatter<T>,
-    IParser<T> {}
+export interface IDocumentHandler<T> {
+  isValid?: (input: T) => boolean;
+  format?: (input: T) => string;
+  parse?: (input: T) => string;
+}
 
 export { Cpf } from "./cpf";
 export { Cnpj } from "./cnpj";
