@@ -1,15 +1,23 @@
 name: Release
 
 on:
-  push:
+  workflow_run:
+    workflows: ["CI"]
     branches: [main]
+    types: [completed]
 
 permissions:
   contents: write
 
+concurrency:
+  group: release-main
+  cancel-in-progress: false
+
 jobs:
   publish:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -23,24 +31,21 @@ jobs:
 
       - run: npm ci
 
-      - name: Ensure clean git tree
-        run: |
-          git status --porcelain
-          test -z "$(git status --porcelain)"
-
       - name: Configure git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Bump version + tag
-        run: 'npm version patch -m "chore(release): v%s [skip ci]"'
+        run: |
+          npm version patch -m "chore(release): v%s"
 
       - name: Push commit + tags
-        run: git push --follow-tags
+        run: git push --follow-tags origin HEAD:main
 
-      # Build só depois da versão (evita “dirty” antes do npm version)
       - run: npm run build --if-present
 
       - name: Publish to npm
         run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
