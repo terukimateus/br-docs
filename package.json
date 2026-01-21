@@ -11,19 +11,14 @@
   },
   "homepage": "http://github.com/terukimateus/br-docs#readme",
   "exports": {
-    ".": "./dist/index.js",
-    "./cpf": "./dist/cpf.js",
-    "./celular": "./dist/celular.js",
-    "./email": "./dist/email.js",
-    "./pix": "./dist/pix.js",
-    "./cnpj": "./dist/cnpj.js",
-    "./uuid": "./dist/uuid.js",
-    "./cnh": "./dist/cnh.js",
-    "./cep": "./dist/cep.js",
-    "./telefone": "./dist/telefone.js",
-    "./boleto": "./dist/boleto.js",
-    "./nis": "./dist/nis.js",
-    "./joi": "./dist/joi.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./joi": {
+      "types": "./dist/joi.d.ts",
+      "default": "./dist/joi.js"
+    }
   },
   "scripts": {
     "build": "tsc",

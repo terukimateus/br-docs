@@ -14,37 +14,18 @@ npm i br-docs joi
 
 ```typescript
 import Joi from "joi";
-import documentExtension from "br-docs/joi";
+import validator from "br-docs/joi";
 
-const JoiExtended = Joi.extend(documentExtension);
+const joiExtend = Joi.extend(validator);
 
-const schema = JoiExtended.object({
-  cpf: JoiExtended.document().cpf().required(),
-  cnpj: JoiExtended.document().cnpj().required(),
-  nis: JoiExtended.document().nis().required(),
-  cnh: JoiExtended.document().cnh().required(),
-  cep: JoiExtended.document().cep().required(),
-  telefone: JoiExtended.document().phone().required(),
-  pix: JoiExtended.document().pix().required(),
-  boleto: JoiExtended.document().boleto().required(),
-  celular: JoiExtended.document().celular().required(),
+const userSchema = joiExtend.object({
+  id: joiExtend.string().uuid().required(),
+  email: joiExtend.string().email().required(),
+  name: joiExtend.string().min(2).max(100).required(),
+  age: joiExtend.number().integer().min(0).optional(),
+  cpf: joiExtend.string().cpf().required(),
+  cellphone: joiExtend.string().celular().optional(),
 });
-
-const result = schema.validate({
-  cpf: "123.456.789-09",
-  cnpj: "11.222.333/0001-81",
-  nis: "123.45678.90-1",
-  cnh: "02650306461",
-  cep: "01001-000",
-  telefone: "(11) 3456-7890",
-  pix: "email@dominio.com",
-  boleto: "34191.79001 01043.510047 91020.150008 6 84570000002000",
-  celular: "(11) 98765-4321",
-});
-
-if (result.error) {
-  console.error(result.error.details);
-}
 ```
 
 ## Regras disponíveis
