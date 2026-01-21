@@ -1,6 +1,6 @@
 import BaseJoi, { Schema } from "joi";
-import { brDocsJoiExtension } from "../joi/joi";
 import { describe, expect, it } from "vitest";
+import { brDocsJoiExtension } from "../joi";
 
 const Joi = BaseJoi.extend(brDocsJoiExtension);
 
