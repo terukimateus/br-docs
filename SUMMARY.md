@@ -12,6 +12,7 @@
     - [CNPJ](docs/UTILITARIOS/CNPJ.md)
     - [CPF](docs/UTILITARIOS/CPF.md)
     - [Email](docs/UTILITARIOS/EMAIL.md)
+    - [NIS](docs/UTILITARIOS/NIS.md)
     - [PIX](docs/UTILITARIOS/PIX.md)
     - [Telefone/Celular](docs/UTILITARIOS/TELEFONE.md)
     - [UUID](docs/UTILITARIOS/UUID.md)
