@@ -10,7 +10,7 @@ import { Pix } from "./pix";
 import { Boleto } from "./boleto";
 import { Celular } from "./celular";
 
-export const validator: ExtensionFactory = (joi) => ({
+const validator: ExtensionFactory = (joi) => ({
   type: "document",
   base: joi.string(),
   messages: {

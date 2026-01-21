@@ -1,19 +1,6 @@
 import { IDocumentHandler } from ".";
 import clean from "./utils/cleanString";
 
-/**
- * Função auxiliar para calcular o dígito verificador de um número.
- * @param digits
- * @returns {number} O dígito verificador calculado.
- */
-const calcDigit = (digits: string): number => {
-  const digit = digits
-    .split("")
-    .reduce((acc, digit, index) => acc + parseInt(digit, 10) * (9 - index), 0);
-  const remainder = digit % 11;
-  return remainder < 2 ? 0 : 11 - remainder;
-};
-
 export class Cnh implements IDocumentHandler<string> {
   constructor(private cnh: string) {}
 

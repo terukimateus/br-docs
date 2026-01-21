@@ -22,7 +22,8 @@
     "./cep": "./dist/cep.js",
     "./telefone": "./dist/telefone.js",
     "./boleto": "./dist/boleto.js",
-    "./nis": "./dist/nis.js"
+    "./nis": "./dist/nis.js",
+    "./joi": "./dist/joi.js"
   },
   "scripts": {
     "build": "tsc",
