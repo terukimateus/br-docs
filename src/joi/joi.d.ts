@@ -1,7 +1,8 @@
 import "joi";
+import type Joi from "joi";
 
 declare module "joi" {
-  interface DocumentSchema extends StringSchema {
+  interface DocumentSchema extends Joi.StringSchema {
     cpf(): this;
     cnpj(): this;
     nis(): this;

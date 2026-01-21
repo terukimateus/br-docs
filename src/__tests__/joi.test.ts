@@ -1,8 +1,8 @@
 import BaseJoi, { Schema } from "joi";
-import validator from "../joi";
+import { brDocsJoiExtension } from "../joi/joi";
 import { describe, expect, it } from "vitest";
 
-const Joi = BaseJoi.extend(validator);
+const Joi = BaseJoi.extend(brDocsJoiExtension);
 
 function expectOk(schema: Schema, value: string) {
   const { error } = schema.validate(value);

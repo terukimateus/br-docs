@@ -20,6 +20,16 @@
       "default": "./dist/joi.js"
     }
   },
+  "typesVersions": {
+    "*": {
+      "joi": [
+        "dist/joi.d.ts"
+      ],
+      "*": [
+        "dist/index.d.ts"
+      ]
+    }
+  },
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",

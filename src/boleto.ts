@@ -7,12 +7,12 @@ const FORMAT_BOLETO_REGEX: Record<BOLETO, (boleto: string) => string> = {
   COBRANCA: (boleto: string) =>
     boleto.replace(
       /(\d{5})(\d{5})(\d{5})(\d{6})(\d{5})(\d{6})(\d{1})(\d{10})/,
-      "$1.$2 $3.$4 $5.$6 $7 $8"
+      "$1.$2 $3.$4 $5.$6 $7 $8",
     ),
   ARRECADACAO: (boleto: string) =>
     boleto.replace(
       /(\d{11})(\d{1})(\d{11})(\d{1})(\d{11})(\d{1})(\d{11})(\d{1})/,
-      "$1-$2 $3-$4 $5-$6 $7-$8"
+      "$1-$2 $3-$4 $5-$6 $7-$8",
     ),
 };
 
