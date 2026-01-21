@@ -1,4 +1,4 @@
-import type { ExtensionFactory } from "joi";
+import type { ExtensionFactory, Root } from "joi";
 export type { StringSchema } from "joi";
 import { Cpf } from "../cpf";
 import { Cnpj } from "../cnpj";
@@ -65,3 +65,7 @@ export const brDocsJoiExtension: ExtensionFactory = (joi) => ({
     },
   },
 });
+
+export function extendJoi(joi: Root): Root {
+  return joi.extend(brDocsJoiExtension);
+}

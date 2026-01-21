@@ -12,20 +12,48 @@ npm i br-docs joi
 
 ### Uso básico
 
+Temos duas opções para utilizar a extensão do **br-docs** com o **Joi**:
+
+1. Utilizando a função `extendJoi` para criar uma instância estendida do Joi:
+
+- `import { extendJoi } from "br-docs/joi";`
+- O que possibilita a tipagem correta dos métodos adicionados.
+
+2. Utilizando a extensão diretamente:
+
+- `import { brDocsJoiExtension } from "br-docs/joi";`
+- O que não traz a tipagem correta dos métodos adicionados. Devido a limitações do
+  método de extensão do Joi.
+
 ```typescript
 import Joi from "joi";
 import { brDocsJoiExtension } from "br-docs/joi";
 
 const joiExtend = Joi.extend(brDocsJoiExtension);
 
+const testUser = {
+  id: "550e8400-e29b-41d4-a716-446655440000",
+  email: "test@email.com",
+  name: "Test User",
+  age: 30,
+  cpf: "798.642.200-98",
+  cellphone: "(11) 91234-5678",
+  cnpj: "12.345.678/0001-95",
+  nis: "589.02102.27-5",
+};
+
 const userSchema = joiExtend.object({
   id: joiExtend.string().uuid().required(),
   email: joiExtend.string().email().required(),
   name: joiExtend.string().min(2).max(100).required(),
   age: joiExtend.number().integer().min(0).optional(),
-  cpf: joiExtend.string().cpf().required(),
-  cellphone: joiExtend.string().celular().optional(),
+  cpf: joiExtend.document().cpf().required(),
+  cellphone: joiExtend.document().celular().optional(),
+  cnpj: joiExtend.document().cnpj().optional(),
+  nis: joiExtend.document().nis().optional(),
 });
+
+const validateUserSchema = userSchema.validate(testUser);
 ```
 
 ## Regras disponíveis
