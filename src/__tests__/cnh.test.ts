@@ -3,7 +3,7 @@ import { describe, it, expect } from "vitest";
 
 describe("CNH Validation", () => {
   it("should validate a correct CNH", () => {
-    expect(Cnh.isValid("12345678900")).toBe(true);
+    expect(Cnh.isValid("60930978987")).toBe(true);
   });
 
   it("should invalidate an incorrect CNH", () => {

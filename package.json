@@ -21,7 +21,9 @@
     "./cnh": "./dist/cnh.js",
     "./cep": "./dist/cep.js",
     "./telefone": "./dist/telefone.js",
-    "./boleto": "./dist/boleto.js"
+    "./boleto": "./dist/boleto.js",
+    "./nis": "./dist/nis.js",
+    "./joi": "./dist/joi.js"
   },
   "scripts": {
     "build": "tsc",
@@ -39,7 +41,16 @@
     "cpf",
     "phone",
     "cep",
-    "cnpj"
+    "cnpj",
+    "pix",
+    "boleto",
+    "cnh",
+    "nis",
+    "uuid",
+    "email",
+    "documentos",
+    "validacao",
+    "formatacao"
   ],
   "author": "Mateus Teruki",
   "description": "Utilitários para validação e formatação de documentos brasileiros como CPF, telefone, CEP e CNPJ.",
@@ -49,7 +60,16 @@
     "@vitest/coverage-v8": "^3.2.4",
     "eslint": "^8.50.0",
     "typescript": "^5.8.3",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "joi": "^17.0.0"
+  },
+  "peerDependencies": {
+    "joi": "^17.0.0"
+  },
+  "peerDependenciesMeta": {
+    "joi": {
+      "optional": true
+    }
   },
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

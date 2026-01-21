@@ -17,3 +17,5 @@
     - [Telefone/Celular](docs/UTILITARIOS/TELEFONE.md)
     - [UUID](docs/UTILITARIOS/UUID.md)
     - [Boleto](docs/UTILITARIOS/BOLETO.md)
+  - [Extensões](docs/EXTENSOES/README.md)
+    - [Joi](docs/EXTENSOES/JOI.md)
