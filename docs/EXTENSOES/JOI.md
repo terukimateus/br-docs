@@ -14,9 +14,9 @@ npm i br-docs joi
 
 ```typescript
 import Joi from "joi";
-import validator from "br-docs/joi";
+import { brDocsJoiExtension } from "br-docs/joi";
 
-const joiExtend = Joi.extend(validator);
+const joiExtend = Joi.extend(brDocsJoiExtension);
 
 const userSchema = joiExtend.object({
   id: joiExtend.string().uuid().required(),
