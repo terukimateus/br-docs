@@ -49,34 +49,3 @@ export { Telefone } from "./telefone";
 export { Cnh } from "./cnh";
 export { Boleto } from "./boleto";
 export { Nis } from "./nis";
-
-export const validator = (joi: any) => ({
-  type: "document",
-  base: joi.string(),
-  messages: {
-    "document.cpf": "CPF inválido",
-    "document.cnpj": "CNPJ inválido",
-  },
-  rules: {
-    cpf: {
-      validate(value: any, helpers: any, args: any, options: any) {
-        if (!Cpf.isValid(value)) {
-          return helpers.error("document.cpf");
-        }
-
-        return value;
-      },
-    },
-    cnpj: {
-      validate(value: any, helpers: any, args: any, options: any) {
-        if (!Cnpj.isValid(value)) {
-          return helpers.error("document.cnpj");
-        }
-
-        return value;
-      },
-    },
-  },
-});
-
-export default validator;
