@@ -1,6 +1,3 @@
-import { Cnpj } from "./cnpj";
-import { Cpf } from "./cpf";
-
 /**
  * Interface que define o método de validação de um documento.
  * Implementa o método de validação que verifica se o documento é válido.
