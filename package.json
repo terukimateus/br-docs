@@ -16,14 +16,14 @@
       "default": "./dist/index.js"
     },
     "./joi": {
-      "types": "./dist/joi.d.ts",
-      "default": "./dist/joi.js"
+      "types": "./dist/joi/index.d.ts",
+      "default": "./dist/joi/index.js"
     }
   },
   "typesVersions": {
     "*": {
       "joi": [
-        "dist/joi.d.ts"
+        "dist/joi/index.d.ts"
       ],
       "*": [
         "dist/index.d.ts"
