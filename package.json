@@ -1,9 +1,13 @@
 {
   "name": "br-docs",
   "version": "1.1.12",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "type": "module",
+  "files": [
+    "dist"
+  ],
   "sideEffects": false,
   "repository": {
     "type": "git",
@@ -13,33 +17,33 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
     },
     "./joi": {
       "types": "./dist/joi/index.d.ts",
-      "default": "./dist/joi/index.js"
+      "browser": "./dist/joi/browser.js",
+      "import": "./dist/joi/index.js",
+      "require": "./dist/joi/index.cjs"
     }
   },
   "typesVersions": {
     "*": {
       "joi": [
-        "dist/joi/index.d.ts"
+        "dist/esm/joi/index.d.ts"
       ],
       "*": [
-        "dist/index.d.ts"
+        "dist/esm/index.d.ts"
       ]
     }
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsup",
     "prepare": "npm run build",
     "test": "vitest",
     "lint": "eslint ./src --ext .ts,.tsx",
     "coverage": "vitest run --coverage"
   },
-  "files": [
-    "dist"
-  ],
   "keywords": [
     "brasil",
     "utils",
@@ -64,9 +68,10 @@
     "@typescript-eslint/eslint-plugin": "^8.37.0",
     "@vitest/coverage-v8": "^3.2.4",
     "eslint": "^8.50.0",
-    "typescript": "^5.8.3",
-    "vitest": "^3.2.4",
-    "joi": "^17.0.0"
+    "joi": "^17.0.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
   },
   "peerDependencies": {
     "joi": "^17.0.0"
